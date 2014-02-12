@@ -16,4 +16,20 @@
 	<string name="trestante">Turnos restantes: </string>
 	<string name="reiniciar">Reiniciar</string>
 	<string name="salir">Salir</string>
+	<string name="pdificultad">Dificultad</string>
+	<string name="sdificultad">Especifique la dificultad:</string>
+	<string name="ddificultad">Cambie la dificultad del juego.</string>
+	<string name="pturns">Turnos</string>
+	<string name="sturns">Especifique los turnos:</string>
+	<string name="dturns">Cambie el número máximo de turnos del juego.</string>
+	 <string-array name="dificultades">
+      <item>Fácil</item>
+      <item>Medio</item>
+      <item>Dificil</item>
+   </string-array>
+   <string-array name="codigodificultades">
+      <item>12</item>
+      <item>18</item>
+      <item>24</item>
+   </string-array>
 </resources>

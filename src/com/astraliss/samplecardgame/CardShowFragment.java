@@ -31,12 +31,17 @@ public class CardShowFragment extends Fragment implements OnClickListener {
 	private int remainTurns;
 	private int elapsedTurns;
 	private int points;
+	Activity activity;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		remainTurns = 50;
+		activity = getActivity();
 		//Inflate the layout
 		view = inflater.inflate(R.layout.card_show,container, false);
+		//Saving the layout roots view to disable it further
 		rootLayout = (LinearLayout) view.findViewById(R.id.scrollViewCards);
+		//Instance two Decks of cards, every one with an array of numbers
 		CardDeck deck1 = new CardDeck(12);
 		CardDeck deck2 = new CardDeck(12);
 		Drawable[] images = {getResources().getDrawable(R.drawable.ambulance),
@@ -88,6 +93,7 @@ public class CardShowFragment extends Fragment implements OnClickListener {
 			}
 			mFlipImageView.get(i).setOnClickListener(this);
 		}
+		refreshPoints(false, false);
 
 
 
@@ -100,35 +106,44 @@ public class CardShowFragment extends Fragment implements OnClickListener {
 		lastpressed.setFlipped(false);
 		pressed = 0;
 	}
-	public void unlockClick(){
+	public void refreshPoints(boolean point, boolean turns){
+		if(turns){
+		remainTurns--;
+		elapsedTurns++;
+		}
+		if(point)
+			points+=2;
+		((GameActivity) activity).refreshPuntuation(remainTurns, elapsedTurns, points);
 
 	}
 	@Override
 	public void onClick(View v) {
-		switch (pressed) {
-		case 0:
-			ivpressed = v.getId();
-			firstpressed = ((FlipImageView) view.findViewById(ivpressed));
-			firstpressed.setFlipped(true);
-			pressed++;
-			break;
-
-		case 1:
-			rootLayout.setEnabled(false);
-			lastpressed = ((FlipImageView) view.findViewById(v.getId()));
-			lastpressed.setFlipped(true);
-			if( firstpressed != lastpressed){
+			switch (pressed) {
+			case 0:
+				ivpressed = v.getId();
+				firstpressed = ((FlipImageView) view.findViewById(ivpressed));
+				firstpressed.setFlipped(true);
 				pressed++;
-				if(lastpressed.getTag() == firstpressed.getTag())
-				{
-					firstpressed.setEnabled(false);
-					lastpressed.setEnabled(false);
-					pressed = 0;
-				}else
-					new GoToSleep(this).execute("");
+				break;
+
+			case 1:
+				rootLayout.setEnabled(false);
+				lastpressed = ((FlipImageView) view.findViewById(v.getId()));
+				lastpressed.setFlipped(true);
+				if( firstpressed != lastpressed){
+					pressed++;
+					if(lastpressed.getTag() == firstpressed.getTag())
+					{
+						firstpressed.setEnabled(false);
+						lastpressed.setEnabled(false);
+						pressed = 0;
+						refreshPoints(true, true);
+					}else
+						new GoToSleep(this).execute("");
+					refreshPoints(false, true);
+				}
+				break;
 			}
-			break;
-		}
 
 	}
 

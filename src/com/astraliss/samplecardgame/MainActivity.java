@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity  extends FragmentActivity {
 	MenuFragment menuFragment;
@@ -40,8 +41,8 @@ public class MainActivity  extends FragmentActivity {
 		ft.replace(R.id.MainFragment, menuFragment, "MENU");
 		ft.commit();
 		ctx = getApplicationContext();
-
 	}
+
 	protected void changeToFragment(int fragmentid){
 		fm = getSupportFragmentManager();
 		ft = fm.beginTransaction();

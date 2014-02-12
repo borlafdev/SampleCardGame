@@ -3,24 +3,25 @@
     android:layout_height="match_parent" >
 
     <PreferenceCategory
-            android:title="PreferenceCategory A">
+            android:title="Ajustes del juego">
 
-        <CheckBoxPreference
-                android:key="checkbox_preference"
-                android:title="title_checkbox_preference"
-                android:summary="summary_checkbox_preference" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-            android:title="PreferenceCategory B">
-
+        <ListPreference
+		   android:key="difficulty"
+		   android:title="@string/pdificultad"
+		   android:summary="@string/ddificultad"
+		   android:dialogTitle="@string/pdificultad"
+		   android:entries="@array/dificultades"
+		   android:entryValues="@array/codigodificultades" />
+        
         <EditTextPreference
-                android:key="edittext_preference"
-                android:title="title_edittext_preference"
-                android:summary="summary_edittext_preference"
-                android:dialogTitle="dialog_title_edittext_preference" />
+		   android:key="turns"
+		   android:title="@string/pturns"
+		   android:summary="@string/dturns"
+		   android:dialogTitle="@string/pturns"
+		   android:inputType="number"
+		   android:entries="@array/dificultades" />
 
     </PreferenceCategory>
+
 
 </PreferenceScreen>

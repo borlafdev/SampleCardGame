@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Juego de las parejas</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="init_game">Iniciar juego</string>
+    <string name="game_settings">Ajustes</string>
+    <string name="game_credits">Créditos</string>
+    <string name="game_mainimage">Logo aplicación</string>
+    <string name="credit">This app was fully developed by Pablo Borlaf Mena, is under GPLv3 license, and you can review the code on Github</string>
+	<string name="twitter">&#xf099;</string>
+	<string name="github">&#xf113;</string>
+	<string name="web">&#xf0c1;</string>
+</resources>

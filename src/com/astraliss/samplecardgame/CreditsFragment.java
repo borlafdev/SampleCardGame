@@ -1,4 +1,4 @@
-package com.astraliss.cardgame;
+package com.astraliss.samplecardgame;
 
 
 import android.app.Activity;

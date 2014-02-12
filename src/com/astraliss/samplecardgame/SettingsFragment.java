@@ -1,4 +1,4 @@
-package com.astraliss.cardgame;
+package com.astraliss.samplecardgame;
 
 import android.os.Bundle;
 import android.support.v4.preference.PreferenceFragment;

@@ -4,6 +4,8 @@ package com.astraliss.samplecardgame;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -20,6 +22,7 @@ public class MainActivity  extends FragmentActivity {
 	CreditsFragment creditsFragment;
 	FragmentManager fm;
 	FragmentTransaction ft;
+	Context ctx;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +38,8 @@ public class MainActivity  extends FragmentActivity {
 		ft.setCustomAnimations(
 			      R.anim.fadein, R.anim.fadeout, R.anim.fadein, R.anim.fadeout);
 		ft.replace(R.id.MainFragment, menuFragment, "MENU");
-		ft.addToBackStack(null);
 		ft.commit();
+		ctx = getApplicationContext();
 
 	}
 	protected void changeToFragment(int fragmentid){
@@ -44,7 +47,8 @@ public class MainActivity  extends FragmentActivity {
 		ft = fm.beginTransaction();
 		switch (fragmentid) {
 		case 1:
-			
+			Intent game = new Intent(ctx, GameActivity.class);
+			startActivity(game);
 			break;
 		case 2:
 			ft.setCustomAnimations(

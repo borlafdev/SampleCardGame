@@ -11,4 +11,9 @@
 	<string name="twitter">&#xf099;</string>
 	<string name="github">&#xf113;</string>
 	<string name="web">&#xf0c1;</string>
+	<string name="puntos">Puntos: </string>
+	<string name="tjugados">Turnos jugados: </string>
+	<string name="trestante">Turnos restantes: </string>
+	<string name="reiniciar">Reiniciar</string>
+	<string name="salir">Salir</string>
 </resources>

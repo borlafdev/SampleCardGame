@@ -10,24 +10,20 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 
 public class GameActivity extends FragmentActivity {
-	MenuFragment menuFragment;
-	SettingsFragment settingsFragment;
-	CreditsFragment creditsFragment;
+	CardShowFragment cardShow;
 	FragmentManager fm;
 	FragmentTransaction ft;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.game_container);
 		   
-		menuFragment = new MenuFragment();
-		settingsFragment = new SettingsFragment();
-		creditsFragment = new CreditsFragment();
+		cardShow = new CardShowFragment();
 		fm = getSupportFragmentManager();
 		ft = fm.beginTransaction();
 		ft.setCustomAnimations(
 			      R.anim.fadein, R.anim.fadeout, R.anim.fadein, R.anim.fadeout);
-		ft.replace(R.id.MainFragment, menuFragment, "MENU");
+		ft.replace(R.id.GameFragment, cardShow, "MENU");
 		ft.addToBackStack(null);
 		ft.commit();
 	}
@@ -38,5 +34,11 @@ public class GameActivity extends FragmentActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	 @Override
+	    public void onBackPressed() {
+	    	finish();
+	        
+	    }
 
 }

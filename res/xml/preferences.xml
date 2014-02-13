@@ -13,14 +13,14 @@
 		   android:entries="@array/dificultades"
 		   android:entryValues="@array/codigodificultades" />
         
-        <EditTextPreference
+        <ListPreference
 		   android:key="turns"
 		   android:title="@string/pturns"
 		   android:summary="@string/dturns"
 		   android:dialogTitle="@string/pturns"
-		   android:inputType="number"
-		   android:entries="@array/dificultades" />
-
+		   android:entries="@array/sturns"
+		   android:entryValues="@array/iturns" />
+        
     </PreferenceCategory>
 
 

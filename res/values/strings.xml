@@ -32,4 +32,14 @@
       <item>18</item>
       <item>24</item>
    </string-array>
+    <string-array name="sturns">
+      <item>20</item>
+      <item>30</item>
+      <item>40</item>
+   </string-array>
+   <string-array name="iturns">
+	  <item>20</item>
+      <item>30</item>
+      <item>40</item>
+   </string-array>
 </resources>

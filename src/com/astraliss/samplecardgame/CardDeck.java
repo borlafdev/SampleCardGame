@@ -13,7 +13,6 @@ public class CardDeck
 		cards  = new int[number];
 		this.number = number;
         shuffle();
-		String hola = "";
 	}
 
     public void shuffle() {
@@ -22,7 +21,7 @@ public class CardDeck
         while (contador < number -1) 
         {
             Random rnd = new Random();
-            int num = rnd.nextInt(12);
+            int num = rnd.nextInt(number);
             if (!alreadyIn(num))
             {
                 cards[contador] = num;
@@ -45,7 +44,7 @@ public class CardDeck
 
     }
     public int getCard(int pos) {
-    	if(pos < 12)
+    	if(pos < number)
     		return cards[pos];
     	else
     		return 1;

@@ -2,12 +2,14 @@ package com.astraliss.samplecardgame;
 
 
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -15,16 +17,21 @@ import android.widget.TextView;
 
 public class GameActivity extends FragmentActivity implements OnClickListener {
 	CardShowFragment cardShow;
+	EndGameFragment end;
 	FragmentManager fm;
 	FragmentTransaction ft;
 	TextView tvRemainTurns, tvElapsedTurns, tvPoints;
 	Button restart, exit;
+	boolean result;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game_container);
-		   
+		ActionBar ab = getActionBar();
+	    ab.setHomeButtonEnabled(true);
+	    ab.setDisplayHomeAsUpEnabled(true);
 		cardShow = new CardShowFragment();
+		end = new EndGameFragment();
 		fm = getSupportFragmentManager();
 		ft = fm.beginTransaction();
 		ft.setCustomAnimations(
@@ -43,7 +50,23 @@ public class GameActivity extends FragmentActivity implements OnClickListener {
 		exit.setOnClickListener(this);
 		
 	}
-	public void refreshPuntuation(int remainturns, int elapsedturns, int points){
+	
+	public void refreshPuntuation(int remainturns, int elapsedturns, int points, int counterFliped, int totalcards){
+		fm = getSupportFragmentManager();
+		ft = fm.beginTransaction();
+		ft.setCustomAnimations(
+			      R.anim.fadein, R.anim.fadeout, R.anim.fadein, R.anim.fadeout);
+		if(remainturns < 0){
+			result = false;
+			ft.replace(R.id.GameFragment, end , "MENU");
+			ft.addToBackStack(null);
+			ft.commit();
+		}else if(remainturns >= 0 && (counterFliped == totalcards) ){
+			result = true;
+			ft.replace(R.id.GameFragment, end , "MENU");
+			ft.addToBackStack(null);
+			ft.commit();
+		}
 		tvRemainTurns.setText(getResources().getString(R.string.trestante) + Integer.toString(remainturns));
 		tvElapsedTurns.setText(getResources().getString(R.string.tjugados) + Integer.toString(elapsedturns));
 		tvPoints.setText(getResources().getString(R.string.puntos) + Integer.toString(points));
@@ -69,6 +92,27 @@ public class GameActivity extends FragmentActivity implements OnClickListener {
 		{
 			finish();
 		}
+	}
+
+	public boolean getResult() {
+		if(result){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+
+	    int itemId = item.getItemId();
+	    switch (itemId) {
+	    case android.R.id.home:
+	    	finish();
+	        break;
+
+	    }
+
+	    return true;
 	}
 
 }

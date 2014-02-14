@@ -1,10 +1,10 @@
 package com.astraliss.samplecardgame;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +22,8 @@ public class CreditsFragment extends Fragment implements OnClickListener {
 	  TextView twitter = (TextView) view.findViewById(R.id.tvtwitter);
 	  TextView git = (TextView) view.findViewById(R.id.tvgithub);
 	  TextView web = (TextView) view.findViewById(R.id.tvweb);
+	  TextView credit = (TextView) view.findViewById(R.id.credits2);
+	  credit.setText(Html.fromHtml("&#8226; FlipImageView<br/>"));
 	  git.setOnClickListener(this);
 	  twitter.setOnClickListener(this);
 	  web.setOnClickListener(this);
@@ -39,7 +41,6 @@ public class CreditsFragment extends Fragment implements OnClickListener {
   
 	@Override
 	public void onClick(View v) {
-	Activity a = getActivity();
 	Intent browserIntent;
 		if(v.getId() == R.id.tvgithub ){
 			browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.github.com/borlafdev"));

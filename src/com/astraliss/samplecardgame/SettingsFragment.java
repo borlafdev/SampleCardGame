@@ -2,7 +2,6 @@ package com.astraliss.samplecardgame;
 
 import android.os.Bundle;
 import android.support.v4.preference.PreferenceFragment;
-import android.support.v4.preferencefragment.*;
 
 
 public class SettingsFragment extends PreferenceFragment {

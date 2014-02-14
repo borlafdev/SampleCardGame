@@ -1,8 +1,6 @@
 package com.astraliss.samplecardgame;
 
-import android.app.Activity;
 import android.os.AsyncTask;
-import android.util.Log;
 
 class GoToSleep extends AsyncTask<String, Void, Void>{
 

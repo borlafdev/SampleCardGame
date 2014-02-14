@@ -1,10 +1,12 @@
 package com.astraliss.samplecardgame;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+
 import android.os.Bundle;
 import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class GameActivity extends FragmentActivity implements OnClickListener {
@@ -23,6 +26,7 @@ public class GameActivity extends FragmentActivity implements OnClickListener {
 	TextView tvRemainTurns, tvElapsedTurns, tvPoints;
 	Button restart, exit;
 	boolean result;
+	AdView adView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,6 +34,16 @@ public class GameActivity extends FragmentActivity implements OnClickListener {
 		ActionBar ab = getActionBar();
 	    ab.setHomeButtonEnabled(true);
 	    ab.setDisplayHomeAsUpEnabled(true);
+	    
+	    adView = new AdView(this);
+	    adView.setAdUnitId("");
+	    adView.setAdSize(AdSize.BANNER);
+	    LinearLayout layout = (LinearLayout) findViewById(R.id.LayoutGame);
+	    layout.addView(adView);
+	    AdRequest request = new AdRequest.Builder()
+	    .build(); 
+	    adView.loadAd(request);
+	    
 		cardShow = new CardShowFragment();
 		end = new EndGameFragment();
 		fm = getSupportFragmentManager();

@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LayoutGame"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -31,7 +32,7 @@
                 android:layout_margin="10dp"
                 android:text="@string/puntos"
                 android:gravity="left"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium"  />
 
             <TextView
                 android:id="@+id/tvjugados"
@@ -43,7 +44,7 @@
                 android:layout_marginTop="-10dp"
                 android:text="@string/tjugados"
                 android:gravity="left"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium"  />
 
             <TextView
                 android:id="@+id/tvrestantes"
@@ -52,7 +53,7 @@
                 android:layout_margin="10dp"
                 android:text="@string/trestante"
                 android:gravity="left"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium"  />
         </LinearLayout>
 
         <LinearLayout

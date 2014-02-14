@@ -1,23 +1,17 @@
 package com.astraliss.samplecardgame;
 
-
-
+import com.google.android.gms.ads.*;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 public class MainActivity  extends FragmentActivity {
 	MenuFragment menuFragment;
@@ -27,13 +21,23 @@ public class MainActivity  extends FragmentActivity {
 	FragmentTransaction ft;
 	Context ctx;
 	ActionBar ab;
+	AdView adView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_containter);
+		PreferenceManager.setDefaultValues(this, R.xml.preferences , false);
 		 ab = getActionBar();
 		    ab.setHomeButtonEnabled(false);
 		    ab.setDisplayHomeAsUpEnabled(false);
+		
+		    adView = new AdView(this);
+		    adView.setAdUnitId("");
+		    adView.setAdSize(AdSize.BANNER);
+		    LinearLayout layout = (LinearLayout) findViewById(R.id.Layout);
+		    layout.addView(adView);
+		    AdRequest request = new AdRequest.Builder().addTestDevice("0123456789ABCDEF") .build(); 
+		    adView.loadAd(request);
 
 		menuFragment = new MenuFragment();
 		settingsFragment = new SettingsFragment();
@@ -91,8 +95,9 @@ public class MainActivity  extends FragmentActivity {
 	    case android.R.id.home:
 	    	changeToFragment(4);
 	        break;
-
 	    }
+	    
+	   
 
 	    return true;
 	}

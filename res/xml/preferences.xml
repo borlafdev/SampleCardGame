@@ -7,6 +7,7 @@
 
         <ListPreference
 		   android:key="difficulty"
+		   android:defaultValue="12"
 		   android:title="@string/pdificultad"
 		   android:summary="@string/ddificultad"
 		   android:dialogTitle="@string/pdificultad"
@@ -15,6 +16,7 @@
         
         <ListPreference
 		   android:key="turns"
+		   android:defaultValue="40"
 		   android:title="@string/pturns"
 		   android:summary="@string/dturns"
 		   android:dialogTitle="@string/pturns"

@@ -5,21 +5,14 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.LinearLayout;
 
 public class CardShowFragment extends Fragment implements OnClickListener {
@@ -63,7 +56,6 @@ public class CardShowFragment extends Fragment implements OnClickListener {
 		pressed = 0;
 	}
 	private void loadGame( int cards){
-		String hola;
 		mFlipImageView = new ArrayList<FlipImageView>();
 		Drawable[] images = {getResources().getDrawable(R.drawable.ambulance),
 				getResources().getDrawable(R.drawable.android),
@@ -86,8 +78,8 @@ public class CardShowFragment extends Fragment implements OnClickListener {
 			hide1.setVisibility(View.GONE);
 			hide2.setVisibility(View.GONE);
 			hide3.setVisibility(View.GONE);
-			((FlipImageView) view.findViewById(R.id.iv06v)).setVisibility(view.VISIBLE);
-			((FlipImageView) view.findViewById(R.id.iv11v)).setVisibility(view.VISIBLE);
+			((FlipImageView) view.findViewById(R.id.iv06v)).setVisibility(View.VISIBLE);
+			((FlipImageView) view.findViewById(R.id.iv11v)).setVisibility(View.VISIBLE);
 			mFlipImageView.add((FlipImageView) view.findViewById(R.id.iv01));
 			mFlipImageView.add((FlipImageView) view.findViewById(R.id.iv02));
 			mFlipImageView.add((FlipImageView) view.findViewById(R.id.iv03));
@@ -113,7 +105,6 @@ public class CardShowFragment extends Fragment implements OnClickListener {
 				}
 				mFlipImageView.get(i).setOnClickListener(this);
 			}
-			hola = "";
 			
 			break;
 		case 18:
@@ -122,9 +113,9 @@ public class CardShowFragment extends Fragment implements OnClickListener {
 			deck2 = new CardDeck(9);
 			hide2.setVisibility(View.GONE);
 			hide3.setVisibility(View.GONE);
-			((FlipImageView) view.findViewById(R.id.iv06v)).setVisibility(view.VISIBLE);
-			((FlipImageView) view.findViewById(R.id.iv11v)).setVisibility(view.VISIBLE);
-			((FlipImageView) view.findViewById(R.id.iv16v)).setVisibility(view.VISIBLE);
+			((FlipImageView) view.findViewById(R.id.iv06v)).setVisibility(View.VISIBLE);
+			((FlipImageView) view.findViewById(R.id.iv11v)).setVisibility(View.VISIBLE);
+			((FlipImageView) view.findViewById(R.id.iv16v)).setVisibility(View.VISIBLE);
 			mFlipImageView.add((FlipImageView) view.findViewById(R.id.iv01));
 			mFlipImageView.add((FlipImageView) view.findViewById(R.id.iv02));
 			mFlipImageView.add((FlipImageView) view.findViewById(R.id.iv03));
@@ -155,7 +146,6 @@ public class CardShowFragment extends Fragment implements OnClickListener {
 				}
 				mFlipImageView.get(i).setOnClickListener(this);
 			}
-			hola = "";
 			break;
 		case 24:
 			refreshPoints(false, false);
@@ -224,7 +214,7 @@ public class CardShowFragment extends Fragment implements OnClickListener {
 		points--;
 		}
 		if(point)
-			points+=4;
+			points+=5;
 		((GameActivity) activity).refreshPuntuation(remainTurns, elapsedTurns, points, cardsFlipped, difficulty);
 
 	}

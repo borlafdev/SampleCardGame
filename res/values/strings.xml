@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Juego de las parejas</string>
+    <string name="app_name">Memoriza las cartas</string>
     <string name="action_settings">Ajustes</string>
     <string name="init_game">Iniciar juego</string>
     <string name="game_settings">Ajustes</string>
     <string name="game_credits">Créditos</string>
     <string name="game_mainimage">Logo aplicación</string>
-    <string name="credit">This app was fully developed by Pablo Borlaf Mena, is under GPLv3 license, and you can review the code on Github</string>
+    <string name="encredit">This app was fully developed by Pablo Borlaf Mena, is under GPLv3 license, and you can review the code on Github</string>
+     <string name="credit">Esta aplicación esta desarrollada en su totalidad por Pablo Borlaf Mena, esta bajo la licencia GPLv3, el codigo está liberado y lo puedes ver en GitHub</string>
+	<string name="credit2">Librerías de terceros usadas para esta aplicación:</string>
 	<string name="twitter">&#xf099;</string>
 	<string name="github">&#xf113;</string>
 	<string name="web">&#xf0c1;</string>
@@ -22,6 +24,8 @@
 	<string name="pturns">Turnos</string>
 	<string name="sturns">Especifique los turnos:</string>
 	<string name="dturns">Cambie el número máximo de turnos del juego.</string>
+	<string name="creditsto">Librerías de terceros usadas para esta aplicación</string>
+	
 	 <string-array name="dificultades">
       <item>Fácil</item>
       <item>Medio</item>
